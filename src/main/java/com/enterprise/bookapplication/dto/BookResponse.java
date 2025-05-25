@@ -1,62 +1,60 @@
 package com.enterprise.bookapplication.dto;
 
-
 import java.util.List;
 
 public class BookResponse {
-    private List<BookDto> content;
-    private Integer pageNumber;
-    private Integer pageSize;
-    private Long totalElements;
-    private Integer totalPages;
-    private Boolean lastPage;
+  private List<BookDto> content;
+  private Integer pageNumber;
+  private Integer pageSize;
+  private Long totalElements;
+  private Integer totalPages;
+  private Boolean lastPage;
 
-    public List<BookDto> getContent() {
-        return content;
-    }
+  public List<BookDto> getContent() {
+    return content;
+  }
 
-    public void setContent(List<BookDto> content) {
-        this.content = content;
-    }
+  public void setContent(List<BookDto> content) {
+    this.content = content;
+  }
 
-    public Boolean getLastPage() {
-        return lastPage;
-    }
+  public Boolean getLastPage() {
+    return lastPage;
+  }
 
-    public void setLastPage(Boolean lastPage) {
-        this.lastPage = lastPage;
-    }
+  public void setLastPage(Boolean lastPage) {
+    this.lastPage = lastPage;
+  }
 
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
 
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-    }
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
 
-    public Integer getPageSize() {
-        return pageSize;
-    }
+  public Integer getPageSize() {
+    return pageSize;
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
-    public Long getTotalElements() {
-        return totalElements;
-    }
+  public Long getTotalElements() {
+    return totalElements;
+  }
 
-    public void setTotalElements(Long totalElements) {
-        this.totalElements = totalElements;
-    }
+  public void setTotalElements(Long totalElements) {
+    this.totalElements = totalElements;
+  }
 
-    public Integer getTotalPages() {
-        return totalPages;
-    }
+  public Integer getTotalPages() {
+    return totalPages;
+  }
 
-    public void setTotalPages(Integer totalPages) {
-        this.totalPages = totalPages;
-    }
-
+  public void setTotalPages(Integer totalPages) {
+    this.totalPages = totalPages;
+  }
 }
