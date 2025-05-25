@@ -18,8 +18,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFound.class)
     public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFound ex) {
         String message = ex.getMessage();
-//        com.Enterprise.BookApplication.modelDto.ApiResponse response = new ApiResponse(message, false);
-//        return new ResponseEntity<ApiResponse>(response, HttpStatus.NOT_FOUND);
         return new ResponseEntity<ApiResponse>(new ApiResponse(message, false), HttpStatus.NOT_FOUND);
     }
 
