@@ -1,26 +1,22 @@
 package com.enterprise.bookapplication.services;
 
-
 import com.enterprise.bookapplication.dto.BookDto;
 import com.enterprise.bookapplication.dto.BookResponse;
-
 import java.util.List;
-
 
 public interface BookService {
 
-    BookDto createBook(BookDto bookDto);
+  BookDto createBook(BookDto bookDto);
 
-    BookDto getById(Integer id);
+  BookDto getById(Integer id);
 
-   BookResponse getAll(Integer pageNumber, Integer pageSize, String sortBy, String sortDirec);
+  BookResponse getAll(Integer pageNumber, Integer pageSize, String sortBy, String sortDirec);
 
-    BookDto updateBook(Integer id, BookDto bookDto);
+  BookDto updateBook(Integer id, BookDto bookDto);
 
-    void deletebook(Integer id);
+  void deletebook(Integer id);
 
-    List<BookDto> findByAuthor(Integer id);
+  List<BookDto> findByAuthor(Integer id);
 
-    List<BookDto> findByCategory(Integer id);
-
+  List<BookDto> findByCategory(Integer id);
 }
