@@ -4,6 +4,7 @@ package com.enterprise.bookapplication.serviceimpl;
 
 
 import com.enterprise.bookapplication.dao.CategoryDao;
+import com.enterprise.bookapplication.dto.CategoryDto;
 import com.enterprise.bookapplication.entity.Category;
 import com.enterprise.bookapplication.exceptions.ResourceNotFound;
 import com.enterprise.bookapplication.services.CategoryService;
@@ -26,37 +27,37 @@ public class CategoryServiceImpl implements CategoryService {
     private ModelMapper modelMapper;
 
         @Override
-    public com.enterprise.bookapplication.dtos.CategoryDto saveCategory(com.enterprise.bookapplication.dtos.CategoryDto categoryDto) {
+    public CategoryDto saveCategory(CategoryDto categoryDto) {
         Category categories=this.modelMapper.map(categoryDto, Category.class);
         Category savecategories=categoryDao.save(categories);
-        return this.modelMapper.map(savecategories, com.enterprise.bookapplication.dtos.CategoryDto.class);
+        return this.modelMapper.map(savecategories, CategoryDto.class);
     }
 
     @Override
-    public com.enterprise.bookapplication.dtos.CategoryDto getById(Integer categoryId) {
+    public CategoryDto getById(Integer categoryId) {
         Category getcategoryById=this.categoryDao.findById(categoryId).orElseThrow(()->new ResourceNotFound("Categories",categoryId));
-        return this.modelMapper.map(getcategoryById, com.enterprise.bookapplication.dtos.CategoryDto.class);
+        return this.modelMapper.map(getcategoryById, CategoryDto.class);
 
     }
 
     @Override
-    public List<com.enterprise.bookapplication.dtos.CategoryDto> getAll(Integer pageNumber, Integer pageSize) {
+    public List<CategoryDto> getAll(Integer pageNumber, Integer pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<Category> page = this.categoryDao.findAll(pageable);
         List<Category> getAll = page.getContent();
         return getAll.stream()
-                .map(category -> this.modelMapper.map(category, com.enterprise.bookapplication.dtos.CategoryDto.class))
+                .map(category -> this.modelMapper.map(category, CategoryDto.class))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public com.enterprise.bookapplication.dtos.CategoryDto updatecategory(Integer id, com.enterprise.bookapplication.dtos.CategoryDto categoryDto) {
+    public CategoryDto updatecategory(Integer id, CategoryDto categoryDto) {
             Category categories=this.categoryDao.findById(id).orElseThrow(()->new ResourceNotFound("Categories",id));
             categories.setTitle(categoryDto.getTitle());
             categories.setDescription(categoryDto.getDescription());
             categories.setCreatedAt(categoryDto.getCreatedAt());
             Category updatedCategory=this.categoryDao.save(categories);
-            return this.modelMapper.map(updatedCategory, com.enterprise.bookapplication.dtos.CategoryDto.class);
+            return this.modelMapper.map(updatedCategory, CategoryDto.class);
     }
 
     @Override

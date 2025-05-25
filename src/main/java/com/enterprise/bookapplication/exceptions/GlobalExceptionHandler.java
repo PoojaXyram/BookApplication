@@ -1,10 +1,10 @@
 package com.enterprise.bookapplication.exceptions;
 
 
+import com.enterprise.bookapplication.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -16,11 +16,11 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFound.class)
-    public ResponseEntity<com.enterprise.bookapplication.dtos.ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFound ex) {
+    public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFound ex) {
         String message = ex.getMessage();
 //        com.Enterprise.BookApplication.modelDto.ApiResponse response = new ApiResponse(message, false);
 //        return new ResponseEntity<ApiResponse>(response, HttpStatus.NOT_FOUND);
-        return new ResponseEntity<com.enterprise.bookapplication.dtos.ApiResponse>(new com.enterprise.bookapplication.dtos.ApiResponse(message, false), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(message, false), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

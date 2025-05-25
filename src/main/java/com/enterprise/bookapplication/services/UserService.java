@@ -1,16 +1,18 @@
 package com.enterprise.bookapplication.services;
 
+import com.enterprise.bookapplication.dto.UserDto;
+
 import java.util.List;
 
 public interface UserService {
 
-    com.enterprise.bookapplication.dtos.UserDto createUser(com.enterprise.bookapplication.dtos.UserDto userDto);
+    UserDto createUser(UserDto userDto);
 
-    com.enterprise.bookapplication.dtos.UserDto getById(Integer id);
+    UserDto getById(Integer id);
 
-    List<com.enterprise.bookapplication.dtos.UserDto> getAll(Integer pageNumber, Integer pageSize);
+    List<UserDto> getAll(Integer pageNumber, Integer pageSize);
 
-   com.enterprise.bookapplication.dtos.UserDto updateUser(Integer id, com.enterprise.bookapplication.dtos.UserDto userDto);
+   UserDto updateUser(Integer id, UserDto userDto);
 
     void deleteUser(Integer id);
 

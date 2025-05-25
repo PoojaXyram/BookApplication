@@ -1,15 +1,17 @@
 package com.enterprise.bookapplication.services;
 
+import com.enterprise.bookapplication.dto.AuthorDto;
+
 import java.util.List;
 
 public interface AuthorService {
-    com.enterprise.bookapplication.dtos.AuthorDto createAuthor(com.enterprise.bookapplication.dtos.AuthorDto  authorDto);
+    AuthorDto createAuthor(AuthorDto authorDto);
 
-   com.enterprise.bookapplication.dtos.AuthorDto  getById(Integer id);
+   AuthorDto getById(Integer id);
 
-    List<com.enterprise.bookapplication.dtos.AuthorDto > getAll(Integer pageNumber,Integer pageSize);
+    List<AuthorDto> getAll(Integer pageNumber, Integer pageSize);
 
-   com.enterprise.bookapplication.dtos.AuthorDto  updateAuthor(Integer id,com.enterprise.bookapplication.dtos.AuthorDto authorDto);
+   AuthorDto updateAuthor(Integer id, AuthorDto authorDto);
 
     void deleteAuthor(Integer id);
 }

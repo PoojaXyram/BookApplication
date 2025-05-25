@@ -1,21 +1,21 @@
-package com.enterprise.bookapplication.dtos;
+package com.enterprise.bookapplication.dto;
 
 
 import java.util.List;
 
 public class BookResponse {
-    private List<com.enterprise.bookapplication.dtos.BookDto> content;
+    private List<BookDto> content;
     private Integer pageNumber;
     private Integer pageSize;
     private Long totalElements;
     private Integer totalPages;
     private Boolean lastPage;
 
-    public List<com.enterprise.bookapplication.dtos.BookDto> getContent() {
+    public List<BookDto> getContent() {
         return content;
     }
 
-    public void setContent(List<com.enterprise.bookapplication.dtos.BookDto> content) {
+    public void setContent(List<BookDto> content) {
         this.content = content;
     }
 

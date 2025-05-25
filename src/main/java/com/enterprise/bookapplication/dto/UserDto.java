@@ -1,4 +1,4 @@
-package com.enterprise.bookapplication.dtos;
+package com.enterprise.bookapplication.dto;
 
 
 import jakarta.validation.constraints.Email;
