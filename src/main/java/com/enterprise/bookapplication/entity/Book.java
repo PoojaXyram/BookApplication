@@ -2,7 +2,6 @@ package com.enterprise.bookapplication.entity;
 
 
 import jakarta.persistence.*;
-import org.hibernate.validator.constraints.URL;
 
 import java.sql.Timestamp;
 

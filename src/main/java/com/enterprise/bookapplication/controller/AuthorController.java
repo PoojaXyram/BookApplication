@@ -1,7 +1,8 @@
 package com.enterprise.bookapplication.controller;
 
 
-import com.enterprise.bookapplication.dtos.AuthorDto;
+import com.enterprise.bookapplication.dto.ApiResponse;
+import com.enterprise.bookapplication.dto.AuthorDto;
 import com.enterprise.bookapplication.services.AuthorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,37 +23,37 @@ public class AuthorController {
     private AuthorService authorService;
 
     @PostMapping("/save")
-    public ResponseEntity<com.enterprise.bookapplication.dtos.AuthorDto> createAuthor
-            (@Valid @RequestBody com.enterprise.bookapplication.dtos.AuthorDto authorDto) {
-        com.enterprise.bookapplication.dtos.AuthorDto saveauthor = this.authorService.createAuthor(authorDto);
+    public ResponseEntity<AuthorDto> createAuthor
+            (@Valid @RequestBody AuthorDto authorDto) {
+        AuthorDto saveauthor = this.authorService.createAuthor(authorDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(saveauthor);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<com.enterprise.bookapplication.dtos.AuthorDto> getById(@PathVariable Integer id) {
-        com.enterprise.bookapplication.dtos.AuthorDto getAuthor = this.authorService.getById(id);
+    public ResponseEntity<AuthorDto> getById(@PathVariable Integer id) {
+        AuthorDto getAuthor = this.authorService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(getAuthor);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<com.enterprise.bookapplication.dtos.AuthorDto>>
+    public ResponseEntity<List<AuthorDto>>
     getAll(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
            @RequestParam(value = "pageSize", defaultValue = "2", required = false) Integer pageSize) {
-        List<com.enterprise.bookapplication.dtos.AuthorDto> AuthorList = this.authorService.getAll(pageNumber, pageSize);
+        List<AuthorDto> AuthorList = this.authorService.getAll(pageNumber, pageSize);
         return ResponseEntity.status(HttpStatus.OK).body(AuthorList);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<com.enterprise.bookapplication.dtos.AuthorDto>
+    public ResponseEntity<AuthorDto>
     updateAuthor(@PathVariable Integer id, @RequestBody AuthorDto authorDto) {
-        com.enterprise.bookapplication.dtos.AuthorDto updateAuthor = authorService.updateAuthor(id, authorDto);
+        AuthorDto updateAuthor = authorService.updateAuthor(id, authorDto);
         return new ResponseEntity<AuthorDto>(updateAuthor, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<com.enterprise.bookapplication.dtos.ApiResponse> deleteuthor(@PathVariable Integer id) {
+    public ResponseEntity<ApiResponse> deleteuthor(@PathVariable Integer id) {
         this.authorService.deleteAuthor(id);
-        return new ResponseEntity<com.enterprise.bookapplication.dtos.ApiResponse>(new com.enterprise.bookapplication.dtos.ApiResponse("AuthorDeleted Sucessfully", true), HttpStatus.OK);
+        return new ResponseEntity<ApiResponse>(new ApiResponse("AuthorDeleted Sucessfully", true), HttpStatus.OK);
     }
 
 

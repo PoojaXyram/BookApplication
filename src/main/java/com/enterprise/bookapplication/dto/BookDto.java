@@ -1,7 +1,6 @@
-package com.enterprise.bookapplication.dtos;
+package com.enterprise.bookapplication.dto;
 
 
-import com.enterprise.bookapplication.entity.Author;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -19,25 +18,25 @@ public class BookDto {
     private String title;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private com.enterprise.bookapplication.dtos.AuthorDto authorDto;
+    private AuthorDto authorDto;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private com.enterprise.bookapplication.dtos.CategoryDto categoryDto;
+    private CategoryDto categoryDto;
 
 
-    public com.enterprise.bookapplication.dtos.AuthorDto getAuthorDto() {
+    public AuthorDto getAuthorDto() {
         return authorDto;
     }
 
-    public void setAuthorDto(com.enterprise.bookapplication.dtos.AuthorDto authorDto) {
+    public void setAuthorDto(AuthorDto authorDto) {
         this.authorDto = authorDto;
     }
 
-    public com.enterprise.bookapplication.dtos.CategoryDto getCategoryDto() {
+    public CategoryDto getCategoryDto() {
         return categoryDto;
     }
 
-    public void setCategoryDto(com.enterprise.bookapplication.dtos.CategoryDto categoryDto) {
+    public void setCategoryDto(CategoryDto categoryDto) {
         this.categoryDto = categoryDto;
     }
 
